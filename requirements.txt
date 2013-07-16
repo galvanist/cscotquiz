@@ -1,9 +1,0 @@
-Flask==0.10.1
-Genshi==0.6
-Jinja2==2.7
-MarkupSafe==0.18
-Werkzeug==0.9.1
-gunicorn==17.5
-hmac==20101005
-itsdangerous==0.22
-requests==0.11.2
