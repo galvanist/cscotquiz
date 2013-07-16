@@ -7,7 +7,7 @@ function AwardListCtrl($scope, $http) {
   });
   $scope.guess = function (guess,answer) {
     if (guess == answer) {
-        $('#yes').modal();
+        //$('#yes').modal();
         $scope.score+=1
         $scope.awards = rand($scope.data);
         $scope.values = values($scope.awards,$scope.data);
