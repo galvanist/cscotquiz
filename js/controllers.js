@@ -1,21 +1,41 @@
 function AwardListCtrl($scope, $http) {
+  $scope.score = 0;
   $http.get('data/chs2013csawards.json').success(function(data) {
-    leng = data.length;
-    rand = Math.floor((Math.random()*leng)+1);
-    awards = data.splice(rand, 1);
-    values = [
-        awards[0]['award_made'],
-        data.splice(Math.floor((Math.random()*leng)+1), 1)[0]['award_made'],
-        data.splice(Math.floor((Math.random()*leng)+1), 1)[0]['award_made']
-    ];
-    $scope.awards = awards;
-    $scope.values = shuffle(values);
-    /*console.log(awards[0]['award_made']);
-    console.log(values);*/
+    $scope.data = data;
+    $scope.awards = rand($scope.data);
+    $scope.values = values($scope.awards,$scope.data);
   });
   $scope.guess = function (guess,answer) {
-    if (guess == answer) { $('#yes').modal(); score+=1 } else { $('#no').modal(); score-=1 }
+    if (guess == answer) {
+        $('#yes').modal();
+        $scope.score+=1
+        $scope.awards = rand($scope.data);
+        $scope.values = values($scope.awards,$scope.data);
+    } else {
+        $('#no').modal();
+        $scope.score-=1
+    }
+
   }
+}
+
+function rand(data) {
+    var leng = data.length, rand;
+    rand = Math.floor((Math.random()*leng)+1);
+    return data.splice(rand, 1);
+}
+
+function value(entity) {
+    return entity[0]['award_made'];
+}
+
+function values(awards,data) {
+    var values = [
+        value(awards),
+        value(rand(data)),
+        value(rand(data))
+    ];
+    return shuffle(values);
 }
 
 //faster shuffle http://stackoverflow.com/a/6274398
