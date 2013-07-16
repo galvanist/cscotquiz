@@ -76,7 +76,7 @@
       <div class="jumbotron" ng-repeat="award in awards">
         <h2>{{award.project_title}}</h2>
         <h3>{{award.applicant_name}}</h3>
-        <p class="lead">{{award.applicant_town}}, {{award.council_area_name}} ({{award.date_decision_made}})</p>
+        <p class="lead">{{award.council_area_name}} <span>({{award.date_decision_made}})</span></p>
         <p>{{award.short_description}}</p>
         <!--a class="btn btn-large btn-success" href="#">{{award.award_made}}</a-->
         <button type="button" class="btn btn-large btn-primary btn-award"
@@ -84,13 +84,39 @@
         >{{value}}</button>
       </div>
 
-      <!--hr>
+      <hr>
 
       <div class="footer">
-        <p>&copy; Company 2013</p>
-      </div-->
+        <p>{{score}}</p>
+      </div>
 
     </div> <!-- /container -->
+
+    <!-- Modals -->
+    <div id="no" class="modal hide fade" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h3>No</h3>
+      </div>
+      <div class="modal-body">
+        <p>That's rediculous</p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Try Again</button>
+      </div>
+    </div>
+    <div id="yes" class="modal hide fade" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h3>Totally</h3>
+      </div>
+      <!--div class="modal-body">
+        <p>Onwards...</p>
+      </div-->
+      <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true" onclick="location.reload(true);">Next</button>
+      </div>
+    </div>
 
     <!-- Le javascript
     ================================================== -->

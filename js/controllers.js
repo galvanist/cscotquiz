@@ -14,7 +14,7 @@ function AwardListCtrl($scope, $http) {
     console.log(values);*/
   });
   $scope.guess = function (guess,answer) {
-    if (guess == answer) { alert('Yes, you win...') } else { alert('No, that is rediculous!') }
+    if (guess == answer) { $('#yes').modal(); score+=1 } else { $('#no').modal(); score-=1 }
   }
 }
 
