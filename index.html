@@ -79,7 +79,9 @@
         <p class="lead">{{award.applicant_town}}, {{award.council_area_name}} ({{award.date_decision_made}})</p>
         <p>{{award.short_description}}</p>
         <!--a class="btn btn-large btn-success" href="#">{{award.award_made}}</a-->
-        <button type="button" class="btn btn-large btn-primary btn-award" ng-repeat="value in values">{{value}}</button>
+        <button type="button" class="btn btn-large btn-primary btn-award"
+            ng-repeat="value in values" ng-click="guess(value,award.award_made)"
+        >{{value}}</button>
       </div>
 
       <!--hr>

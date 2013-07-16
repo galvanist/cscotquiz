@@ -13,6 +13,9 @@ function AwardListCtrl($scope, $http) {
     /*console.log(awards[0]['award_made']);
     console.log(values);*/
   });
+  $scope.guess = function (guess,answer) {
+    if (guess == answer) { alert('Yes, you win...') } else { alert('No, that is rediculous!') }
+  }
 }
 
 //faster shuffle http://stackoverflow.com/a/6274398
