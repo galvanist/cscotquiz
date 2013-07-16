@@ -16,7 +16,7 @@
         padding-bottom: 40px;
       }
 
-      /* Custom container */
+      /* custom container */
       .container-narrow {
         margin: 0 auto;
         max-width: 700px;
@@ -25,7 +25,7 @@
         margin: 30px 0;
       }
 
-      /* Main marketing message and sign up button */
+      /* main message */
       .jumbotron {
         margin: 60px 0;
         text-align: center;
@@ -37,6 +37,11 @@
       .jumbotron .btn {
         font-size: 21px;
         padding: 14px 24px;
+      }
+      
+      /* buttons tweak */
+      .btn-award {
+        margin: 0.2em;
       }
     </style>
     <link href="css/bootstrap-responsive.css" rel="stylesheet">
@@ -70,10 +75,11 @@
 
       <div class="jumbotron" ng-repeat="award in awards">
         <h2>{{award.project_title}}</h2>
-        <p class="lead">{{award.applicant_town}}, {{award.council_area_name}}</p>
+        <h2>{{award.applicant_name}}</h2>
+        <p class="lead">{{award.applicant_town}}, {{award.council_area_name}} ({{award.date_decision_made}})</p>
         <p>{{award.short_description}}</p>
         <!--a class="btn btn-large btn-success" href="#">{{award.award_made}}</a-->
-        <button type="button" class="btn btn-large btn-primary" ng-repeat="value in values">{{value}}</button>
+        <button type="button" class="btn btn-large btn-primary btn-award" ng-repeat="value in values">{{value}}</button>
       </div>
 
       <!--hr>
