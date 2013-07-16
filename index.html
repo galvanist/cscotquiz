@@ -52,11 +52,11 @@
     <![endif]-->
 
     <!-- Fav and touch icons -->
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="ico/apple-touch-icon-144-precomposed.png">
+    <!--link rel="apple-touch-icon-precomposed" sizes="144x144" href="ico/apple-touch-icon-144-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="ico/apple-touch-icon-114-precomposed.png">
       <link rel="apple-touch-icon-precomposed" sizes="72x72" href="ico/apple-touch-icon-72-precomposed.png">
-                    <link rel="apple-touch-icon-precomposed" href="ico/apple-touch-icon-57-precomposed.png">
-                                   <link rel="shortcut icon" href="ico/favicon.png">
+                    <link rel="apple-touch-icon-precomposed" href="ico/apple-touch-icon-57-precomposed.png"-->
+                                   <link rel="shortcut icon" href="./favicon.png">
   </head>
 
   <body>
@@ -79,7 +79,6 @@
         <h3>{{award.applicant_name}}</h3>
         <p class="lead">{{award.council_area_name}} <span>({{award.date_decision_made}})</span></p>
         <p>{{award.short_description}}</p>
-        <!--a class="btn btn-large btn-success" href="#">{{award.award_made}}</a-->
         <button type="button" class="btn btn-large btn-primary btn-award"
             ng-repeat="value in values" ng-click="guess(value,award.award_made)"
         >{{value}}</button>
@@ -88,7 +87,7 @@
       <!--hr>
 
       <div class="footer">
-        <p>{{score}}</p>
+        <p>@galvanist</p>
       </div-->
 
     </div> <!-- /container -->

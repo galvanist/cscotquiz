@@ -15,13 +15,12 @@ function AwardListCtrl($scope, $http) {
         $('#no').modal();
         $scope.score-=1
     }
-
   }
 }
 
 function rand(data) {
-    var leng = data.length, rand;
-    rand = Math.floor((Math.random()*leng)+1);
+    var leng = data.length;
+    var rand = Math.floor((Math.random()*leng)+1);
     return data.splice(rand, 1);
 }
 
