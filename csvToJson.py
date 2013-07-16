@@ -12,7 +12,7 @@ def csvToJson( inFile, outFile ):
 
     if out:
         with open( outFile, 'w' ) as jsonFile:
-            json.dump( out, jsonFile, ensure_ascii=False )
+            json.dump( out, jsonFile, ensure_ascii=False, indent=2 )
     else:
        print "Error creating csv dict!"
 
