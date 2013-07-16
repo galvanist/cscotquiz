@@ -20,7 +20,7 @@ if __name__ == "__main__":
      import argparse
 
      parser = argparse.ArgumentParser()
-     parser.add_argument('inFile', nargs=1, help="Choose the in file to use")
-     parser.add_argument('outFile', nargs=1, help="Choose the out file to use")
+     parser.add_argument('inFile', nargs=1, help="Location of CSV input file")
+     parser.add_argument('outFile', nargs=1, help="Location of JSON output file")
      args = parser.parse_args()
      csvToJson( args.inFile[0], args.outFile[0] )
