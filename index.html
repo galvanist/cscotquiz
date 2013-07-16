@@ -19,7 +19,7 @@
       /* custom container */
       .container-narrow {
         margin: 0 auto;
-        max-width: 700px;
+        max-width: 780px;
       }
       .container-narrow > hr {
         margin: 30px 0;
@@ -75,7 +75,7 @@
 
       <div class="jumbotron" ng-repeat="award in awards">
         <h2>{{award.project_title}}</h2>
-        <h2>{{award.applicant_name}}</h2>
+        <h3>{{award.applicant_name}}</h3>
         <p class="lead">{{award.applicant_town}}, {{award.council_area_name}} ({{award.date_decision_made}})</p>
         <p>{{award.short_description}}</p>
         <!--a class="btn btn-large btn-success" href="#">{{award.award_made}}</a-->
