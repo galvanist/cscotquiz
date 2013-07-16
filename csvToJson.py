@@ -4,15 +4,15 @@ import json
 def csvToJson( inFile, outFile ):
     out = None
 
-    with open( inFile, 'r') as csvFile:
+    with open( inFile, 'rU') as csvFile:
         #Note this reads the first line as the keys we can add specific keys with:
         #csv.DictReader( csvFile, fieldnames=<LIST HERE>, restkey=None, restval=None, )
-        csvDict = csv.DictReader( csvFile, restkey=None, restval=None, )
+        csvDict = csv.DictReader( csvFile, restkey=None, restval=None, delimiter=',', dialect='excel' )
         out = [obj for obj in csvDict]
 
     if out:
         with open( outFile, 'w' ) as jsonFile:
-            jsonFile.write( json.dumps( out ) )
+            json.dump( out, jsonFile, ensure_ascii=False )
     else:
        print "Error creating csv dict!"
 
@@ -23,4 +23,4 @@ if __name__ == "__main__":
      parser.add_argument('inFile', nargs=1, help="Choose the in file to use")
      parser.add_argument('outFile', nargs=1, help="Choose the out file to use")
      args = parser.parse_args()
-     csvToJson( args.inFile[0] , args.outFile[0] )
+     csvToJson( args.inFile[0], args.outFile[0] )
