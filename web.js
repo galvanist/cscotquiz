@@ -1,5 +1,5 @@
-var express = require('express'),
-	app = express.createServer()
+var express = require('express');
+var app = express();
 
 // Reference
 // http://expressjs.com/guide.html
@@ -8,7 +8,7 @@ var express = require('express'),
 
 // Configuration
 app.configure(function(){
-	app.use(express.static(__dirname + '/public'));
+	app.use(express.static(__dirname + '/app'));
 	app.use(express.bodyParser());
 	app.use(express.methodOverride());
 
@@ -30,7 +30,7 @@ app.configure(function(){
 
 app.get('/', function(req, res){
 	//Apache-like static index.html (public/index.html)
-	res.redirect("/index.html");
+	res.redirect("/app/index.html");
 	//Or render from view
 	//res.render("index.html")
 });
