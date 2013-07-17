@@ -1,4 +1,5 @@
 var express = require('express');
+var gzippo = require('gzippo');
 var app = express();
 
 // Reference
@@ -8,7 +9,9 @@ var app = express();
 
 // Configuration
 app.configure(function(){
-	app.use(express.static(__dirname + '/app'));
+	//Replace the default connect or express static provider with gzippo's
+	//app.use(express.static(__dirname + '/app'));
+	app.use(gzippo.staticGzip(__dirname + '/app'));
 	app.use(express.bodyParser());
 	app.use(express.methodOverride());
 
