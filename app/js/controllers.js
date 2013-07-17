@@ -1,3 +1,5 @@
+angular.module('cscotquizApp', []);
+
 function AwardListCtrl($scope, $http) {
   $scope.score = 0;
   $http.get('data/chs2013csawards.json').success(function(data) {
@@ -5,12 +7,14 @@ function AwardListCtrl($scope, $http) {
     $scope.award = rand($scope.data);
     $scope.values = values($scope.award,$scope.data);
   });
-  $scope.guess = function (guess,answer) {
+  $scope.guess = function(guess,answer) {
     if (guess == answer) {
         $('#yes').modal();
         $scope.score+=1
-        //$scope.award = rand($scope.data);
-        //$scope.values = values($scope.award,$scope.data);
+        $scope.lastAward = $scope.award;
+        $scope.lastAward.title = $scope.lastAward.project_title?$scope.lastAward.project_title:$scope.lastAward.applicant_name;
+        $scope.award = rand($scope.data);
+        $scope.values = values($scope.award,$scope.data);
     } else {
         $('#no').modal();
         $scope.score-=1
