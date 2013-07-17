@@ -33,7 +33,7 @@ app.configure(function(){
 
 app.get('/', function(req, res){
 	//Apache-like static index.html (public/index.html)
-	res.redirect("/app/index.html");
+	res.redirect("index.html");
 	//Or render from view
 	//res.render("index.html")
 });
