@@ -26,6 +26,10 @@ function AwardListCtrl($scope, $http, $cookieStore) {
     }
     $cookieStore.put('score', $scope.score);
   }
+  $scope.restart = function() {
+    $cookieStore.put('score', 0);
+    $scope.score = 0;
+  }
 }
 
 function rand(data) {

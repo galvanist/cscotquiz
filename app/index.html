@@ -43,6 +43,10 @@
       .btn-award {
         margin: 0.2em;
       }
+      
+      #score {
+        cursor: pointer;
+      }
     </style>
     <link href="css/bootstrap-responsive.css" rel="stylesheet">
 
@@ -67,7 +71,7 @@
         <ul class="nav nav-pills pull-right">
           <!--li class="active"><a href="#">Home</a></li-->
           <!--li><a href="#">About</a></li-->
-          <li class="badge badge-info">{{score}}</li>
+          <li class="badge badge-info" id="score" ng-click="restart()">{{score}}</li>
         </ul>
         <h3 class="muted">Creative Scotland Investments Quiz</h3>
       </div>
