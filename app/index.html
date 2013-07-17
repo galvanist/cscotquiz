@@ -85,8 +85,9 @@
         <p>{{award.short_description}}</p>
         <p class="muted"><small>Was this project awarded...</small></p>
         <button type="button" class="btn btn-large btn-primary btn-award"
-            ng-repeat="value in values" ng-click="guess(value,award.award_made)"
-        >{{value}}</button>
+            ng-repeat="value in values" ng-disabled="states[value]" ng-click="guess(value,award.award_made);">
+                {{value}}
+        </button>
       </div>
 
       <hr>

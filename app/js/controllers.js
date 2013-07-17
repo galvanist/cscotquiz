@@ -11,6 +11,7 @@ function AwardListCtrl($scope, $http, $cookieStore) {
     $scope.data = data;
     $scope.award = rand($scope.data);
     $scope.values = values($scope.award,$scope.data);
+    $scope.states = [];
   });
   $scope.guess = function(guess,answer) {
     if (guess == answer) {
@@ -20,9 +21,11 @@ function AwardListCtrl($scope, $http, $cookieStore) {
         $scope.lastAward.title = $scope.lastAward.project_title?$scope.lastAward.project_title:$scope.lastAward.applicant_name;
         $scope.award = rand($scope.data);
         $scope.values = values($scope.award,$scope.data);
+        $scope.states = [];
     } else {
         $('#no').modal();
         $scope.score -= 1;
+        $scope.states[guess] = true;
     }
     $cookieStore.put('score', $scope.score);
   }
