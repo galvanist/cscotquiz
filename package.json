@@ -1,9 +1,21 @@
 {
-  "name": "node-example",
-  "version": "0.0.1",
+  "name": "cscotquiz",
+  "version": "1.0.0",
+  "description": "Creative Scotland Investments Quiz",
+  "author": "Gavin Leake <gleake@gmail.com>",
+  "contributors": [
+    {
+      "name": "Gavin Leake",
+      "email": "gleake@gmail.com"
+    }
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/galvanist/cscotquiz.git"
+  },
   "dependencies": {
-    "express": "3.1.x",
-    "node-static": "0.7.x"
+    "express": "3.1.x"
   },
   "engines": {
     "node": "0.10.x",
