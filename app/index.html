@@ -1,6 +1,6 @@
 
 <!DOCTYPE html>
-<html lang="en" ng-app>
+<html lang="en" ng-app="cscotquizApp">
   <head>
     <meta charset="utf-8">
     <title>Creative Investments</title>
@@ -59,9 +59,9 @@
                                    <link rel="shortcut icon" href="./favicon.png">
   </head>
 
-  <body>
+  <body ng-controller="AwardListCtrl">
 
-    <div class="container-narrow" ng-controller="AwardListCtrl">
+    <div class="container-narrow">
 
       <div class="masthead">
         <ul class="nav nav-pills pull-right">
@@ -74,7 +74,7 @@
 
       <hr>
 
-      <div class="jumbotron" ng-repeat="award in awards">
+      <div class="jumbotron">
         <h2>{{award.project_title}}</h2>
         <h3>{{award.applicant_name}}</h3>
         <p class="lead">{{award.council_area_name}} <span>({{award.date_decision_made}})</span></p>
@@ -110,9 +110,9 @@
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
         <h3>Totally</h3>
       </div>
-      <!--div class="modal-body">
-        <p>Onwards...</p>
-      </div-->
+      <div class="modal-body">
+        <p>This project was {{award.award_made}}...</p>
+      </div>
       <div class="modal-footer">
         <button class="btn" data-dismiss="modal" aria-hidden="true">Next</button>
       </div>

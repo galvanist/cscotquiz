@@ -2,15 +2,15 @@ function AwardListCtrl($scope, $http) {
   $scope.score = 0;
   $http.get('data/chs2013csawards.json').success(function(data) {
     $scope.data = data;
-    $scope.awards = rand($scope.data);
-    $scope.values = values($scope.awards,$scope.data);
+    $scope.award = rand($scope.data);
+    $scope.values = values($scope.award,$scope.data);
   });
   $scope.guess = function (guess,answer) {
     if (guess == answer) {
-        //$('#yes').modal();
+        $('#yes').modal();
         $scope.score+=1
-        $scope.awards = rand($scope.data);
-        $scope.values = values($scope.awards,$scope.data);
+        //$scope.award = rand($scope.data);
+        //$scope.values = values($scope.award,$scope.data);
     } else {
         $('#no').modal();
         $scope.score-=1
@@ -21,16 +21,17 @@ function AwardListCtrl($scope, $http) {
 function rand(data) {
     var leng = data.length;
     var rand = Math.floor((Math.random()*leng)+1);
-    return data.splice(rand, 1);
+    //return data.splice(rand, 1);
+    return data[rand]
 }
 
 function value(entity) {
-    return entity[0]['award_made'];
+    return entity['award_made'];
 }
 
-function values(awards,data) {
+function values(award,data) {
     var values = [
-        value(awards),
+        value(award),
         value(rand(data)),
         value(rand(data))
     ];
