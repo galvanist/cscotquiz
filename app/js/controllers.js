@@ -1,7 +1,12 @@
-angular.module('cscotquizApp', []);
+angular.module('cscotquizApp', ['ngCookies']);
 
-function AwardListCtrl($scope, $http) {
-  $scope.score = 0;
+function AwardListCtrl($scope, $http, $cookieStore) {
+  if(isInt($cookieStore.get('score'))) {
+    $scope.score = $cookieStore.get('score');
+  } else {
+    $scope.score = 0;
+  }
+  $cookieStore.put('score', $scope.score);
   $http.get('data/chs2013csawards.json').success(function(data) {
     $scope.data = data;
     $scope.award = rand($scope.data);
@@ -10,15 +15,16 @@ function AwardListCtrl($scope, $http) {
   $scope.guess = function(guess,answer) {
     if (guess == answer) {
         $('#yes').modal();
-        $scope.score+=1
+        $scope.score += 1;
         $scope.lastAward = $scope.award;
         $scope.lastAward.title = $scope.lastAward.project_title?$scope.lastAward.project_title:$scope.lastAward.applicant_name;
         $scope.award = rand($scope.data);
         $scope.values = values($scope.award,$scope.data);
     } else {
         $('#no').modal();
-        $scope.score-=1
+        $scope.score -= 1;
     }
+    $cookieStore.put('score', $scope.score);
   }
 }
 
@@ -58,4 +64,8 @@ function shuffle(array) {
     }
 
     return array;
+}
+
+function isInt(n) {
+    return n % 1 === 0;
 }
